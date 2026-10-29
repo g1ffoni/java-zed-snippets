@@ -1,0 +1,404 @@
+{
+    "Main method": {
+        "prefix": "main",
+        "body": "public static void main(String[] args) {\n    $0\n}",
+        "description": "Java main method"
+    },
+    "System.out.println": {
+        "prefix": "sout",
+        "body": "System.out.println(${1:\"msg\"});",
+        "description": "Print to stdout"
+    },
+    "System.err.println": {
+        "prefix": "serr",
+        "body": "System.err.println(${1:\"msg\"});",
+        "description": "Print to stderr"
+    },
+    "Class definition": {
+        "prefix": "class",
+        "body": "public class ${1:ClassName} {\n    $0\n}",
+        "description": "Class definition"
+    },
+    "Class with constructor": {
+        "prefix": "classc",
+        "body": "public class ${1:ClassName} {\n    private ${2:Type} ${3:field};\n\n    public $1(${2:Type} ${3:field}) {\n        this.${3:field} = ${3:field};\n    }\n\n    $0\n}",
+        "description": "Class with a field and constructor"
+    },
+    "Interface definition": {
+        "prefix": "interface",
+        "body": "public interface ${1:Name} {\n    $0\n}",
+        "description": "Interface definition"
+    },
+    "Enum definition": {
+        "prefix": "enum",
+        "body": "public enum ${1:Name} {\n    ${2:VALUE_ONE},\n    ${3:VALUE_TWO};\n}",
+        "description": "Enum definition"
+    },
+    "Record definition": {
+        "prefix": "record",
+        "body": "public record ${1:Name}(${2:Type} ${3:field}) {\n    $0\n}",
+        "description": "Java record"
+    },
+    "Method definition": {
+        "prefix": "meth",
+        "body": "public ${1:void} ${2:method}(${3:args}) {\n    $0\n}",
+        "description": "Public method"
+    },
+    "Private method": {
+        "prefix": "pmeth",
+        "body": "private ${1:void} ${2:method}(${3:args}) {\n    $0\n}",
+        "description": "Private method"
+    },
+    "Static method": {
+        "prefix": "smeth",
+        "body": "public static ${1:void} ${2:method}(${3:args}) {\n    $0\n}",
+        "description": "Public static method"
+    },
+    "Private field": {
+        "prefix": "field",
+        "body": "private ${1:Type} ${2:name};",
+        "description": "Private field"
+    },
+    "Private final field": {
+        "prefix": "ffield",
+        "body": "private final ${1:Type} ${2:name};",
+        "description": "Private final field"
+    },
+    "Constant": {
+        "prefix": "const",
+        "body": "private static final ${1:Type} ${2:NAME} = ${3:value};",
+        "description": "Constant (static final)"
+    },
+    "Getter": {
+        "prefix": "get",
+        "body": "public ${1:Type} get${2:Name}() {\n    return ${3:name};\n}",
+        "description": "Getter method"
+    },
+    "Setter": {
+        "prefix": "set",
+        "body": "public void set${1:Name}(${2:Type} ${3:name}) {\n    this.${3:name} = ${3:name};\n}",
+        "description": "Setter method"
+    },
+    "For loop": {
+        "prefix": "for",
+        "body": "for (int ${1:i} = 0; ${1:i} < ${2:n}; ${1:i}++) {\n    $0\n}",
+        "description": "Indexed for loop"
+    },
+    "Enhanced for loop": {
+        "prefix": "foreach",
+        "body": "for (${1:Type} ${2:item} : ${3:items}) {\n    $0\n}",
+        "description": "Enhanced for loop"
+    },
+    "While loop": {
+        "prefix": "while",
+        "body": "while (${1:condition}) {\n    $0\n}",
+        "description": "While loop"
+    },
+    "If statement": {
+        "prefix": "if",
+        "body": "if (${1:condition}) {\n    $0\n}",
+        "description": "If statement"
+    },
+    "If else statement": {
+        "prefix": "ifelse",
+        "body": "if (${1:condition}) {\n    ${2:// then}\n} else {\n    $0\n}",
+        "description": "If-else statement"
+    },
+    "Switch expression": {
+        "prefix": "switch",
+        "body": "switch (${1:value}) {\n    case ${2:A} -> ${3:result};\n    default -> ${4:other};\n}",
+        "description": "Switch expression (arrow form)"
+    },
+    "Try catch": {
+        "prefix": "try",
+        "body": "try {\n    ${1:// code}\n} catch (${2:Exception} ${3:e}) {\n    $0\n}",
+        "description": "Try/catch block"
+    },
+    "Try catch finally": {
+        "prefix": "tryf",
+        "body": "try {\n    ${1:// code}\n} catch (${2:Exception} ${3:e}) {\n    ${4:// handle}\n} finally {\n    $0\n}",
+        "description": "Try/catch/finally block"
+    },
+    "Try with resources": {
+        "prefix": "tryr",
+        "body": "try (${1:Resource} ${2:res} = ${3:new Resource()}) {\n    $0\n} catch (${4:Exception} ${5:e}) {\n    ${6:throw new RuntimeException(e);}\n}",
+        "description": "Try-with-resources"
+    },
+    "Throw new exception": {
+        "prefix": "thr",
+        "body": "throw new ${1:IllegalArgumentException}(${2:\"message\"});",
+        "description": "Throw an exception"
+    },
+    "Lambda": {
+        "prefix": "lambda",
+        "body": "(${1:x}) -> ${2:x}",
+        "description": "Lambda expression"
+    },
+    "Stream map collect": {
+        "prefix": "streamm",
+        "body": "${1:list}.stream()\n    .map(${2:x} -> ${3:x})\n    .collect(Collectors.toList());",
+        "description": "Stream map + collect"
+    },
+    "Stream filter collect": {
+        "prefix": "streamf",
+        "body": "${1:list}.stream()\n    .filter(${2:x} -> ${3:condition})\n    .toList();",
+        "description": "Stream filter + toList"
+    },
+    "Stream groupingBy": {
+        "prefix": "streamg",
+        "body": "${1:list}.stream()\n    .collect(Collectors.groupingBy(${2:Type}::${3:getter}));",
+        "description": "Stream groupingBy"
+    },
+    "Optional orElseThrow": {
+        "prefix": "opt",
+        "body": "${1:optional}.orElseThrow(() -> new ${2:NoSuchElementException}(${3:\"not found\"}));",
+        "description": "Optional orElseThrow"
+    },
+    "List of": {
+        "prefix": "listof",
+        "body": "List<${1:Type}> ${2:items} = new ArrayList<>();",
+        "description": "New ArrayList"
+    },
+    "Map of": {
+        "prefix": "mapof",
+        "body": "Map<${1:K}, ${2:V}> ${3:map} = new HashMap<>();",
+        "description": "New HashMap"
+    },
+    "SLF4J logger": {
+        "prefix": "log",
+        "body": "private static final Logger log = LoggerFactory.getLogger(${1:${TM_FILENAME_BASE}}.class);",
+        "description": "SLF4J logger field"
+    },
+    "Log info": {
+        "prefix": "logi",
+        "body": "log.info(\"${1:msg}\"${2});",
+        "description": "Logger info"
+    },
+    "Log error": {
+        "prefix": "loge",
+        "body": "log.error(\"${1:msg}\", ${2:e});",
+        "description": "Logger error"
+    },
+    "Override": {
+        "prefix": "ovr",
+        "body": "@Override\npublic ${1:String} ${2:toString}() {\n    $0\n}",
+        "description": "Overridden method"
+    },
+    "Builder pattern": {
+        "prefix": "builder",
+        "body": "public static class Builder {\n    private ${1:Type} ${2:field};\n\n    public Builder ${2:field}(${1:Type} ${2:field}) {\n        this.${2:field} = ${2:field};\n        return this;\n    }\n\n    public ${3:Target} build() {\n        $0\n    }\n}",
+        "description": "Simple builder inner class"
+    },
+
+    "JUnit 5 test": {
+        "prefix": "test",
+        "body": "@Test\nvoid ${1:should_doSomething}() {\n    $0\n}",
+        "description": "JUnit 5 test"
+    },
+    "JUnit 5 test class": {
+        "prefix": "testclass",
+        "body": "class ${1:${TM_FILENAME_BASE}} {\n\n    @Test\n    void ${2:should_doSomething}() {\n        $0\n    }\n}",
+        "description": "JUnit 5 test class"
+    },
+    "JUnit 5 parameterized": {
+        "prefix": "ptest",
+        "body": "@ParameterizedTest\n@ValueSource(${1:strings} = {${2:\"a\", \"b\"}})\nvoid ${3:should_doSomething}(${4:String} ${5:input}) {\n    $0\n}",
+        "description": "JUnit 5 parameterized test"
+    },
+    "JUnit BeforeEach": {
+        "prefix": "beforeeach",
+        "body": "@BeforeEach\nvoid setUp() {\n    $0\n}",
+        "description": "JUnit 5 BeforeEach"
+    },
+    "assertEquals": {
+        "prefix": "ae",
+        "body": "assertEquals(${1:expected}, ${2:actual});",
+        "description": "JUnit assertEquals"
+    },
+    "assertThrows": {
+        "prefix": "at",
+        "body": "assertThrows(${1:Exception}.class, () -> {\n    $0\n});",
+        "description": "JUnit assertThrows"
+    },
+    "Mockito when thenReturn": {
+        "prefix": "when",
+        "body": "when(${1:mock}.${2:method}(${3})).thenReturn(${4:value});",
+        "description": "Mockito when/thenReturn"
+    },
+    "Mockito verify": {
+        "prefix": "verify",
+        "body": "verify(${1:mock}).${2:method}(${3});",
+        "description": "Mockito verify"
+    },
+    "Mockito extension": {
+        "prefix": "mockito-ext",
+        "body": "@ExtendWith(MockitoExtension.class)\nclass ${1:${TM_FILENAME_BASE}} {\n\n    @Mock\n    private ${2:Dependency} ${3:dependency};\n\n    @InjectMocks\n    private ${4:Service} ${5:service};\n\n    $0\n}",
+        "description": "Mockito test class with @Mock and @InjectMocks"
+    },
+
+    "Spring Boot application": {
+        "prefix": "spring-app",
+        "body": "@SpringBootApplication\npublic class ${1:Application} {\n\n    public static void main(String[] args) {\n        SpringApplication.run($1.class, args);\n    }\n}",
+        "description": "Spring Boot main application class"
+    },
+    "Spring REST controller": {
+        "prefix": "spring-controller",
+        "body": "@RestController\n@RequestMapping(\"/${1:api/resource}\")\npublic class ${2:Resource}Controller {\n\n    private final ${3:Resource}Service ${4:service};\n\n    public $2Controller(${3:Resource}Service ${4:service}) {\n        this.${4:service} = ${4:service};\n    }\n\n    $0\n}",
+        "description": "REST controller with constructor injection"
+    },
+    "Spring GetMapping": {
+        "prefix": "spring-get",
+        "body": "@GetMapping(\"${1:/{id}}\")\npublic ResponseEntity<${2:Dto}> ${3:getById}(@PathVariable ${4:Long} ${5:id}) {\n    $0\n}",
+        "description": "GET endpoint"
+    },
+    "Spring GetMapping list": {
+        "prefix": "spring-getall",
+        "body": "@GetMapping\npublic List<${1:Dto}> ${2:getAll}() {\n    $0\n}",
+        "description": "GET endpoint returning a list"
+    },
+    "Spring PostMapping": {
+        "prefix": "spring-post",
+        "body": "@PostMapping\n@ResponseStatus(HttpStatus.CREATED)\npublic ${1:Dto} ${2:create}(@Valid @RequestBody ${3:CreateRequest} ${4:request}) {\n    $0\n}",
+        "description": "POST endpoint"
+    },
+    "Spring PutMapping": {
+        "prefix": "spring-put",
+        "body": "@PutMapping(\"${1:/{id}}\")\npublic ${2:Dto} ${3:update}(@PathVariable ${4:Long} ${5:id}, @Valid @RequestBody ${6:UpdateRequest} ${7:request}) {\n    $0\n}",
+        "description": "PUT endpoint"
+    },
+    "Spring DeleteMapping": {
+        "prefix": "spring-delete",
+        "body": "@DeleteMapping(\"${1:/{id}}\")\n@ResponseStatus(HttpStatus.NO_CONTENT)\npublic void ${2:delete}(@PathVariable ${3:Long} ${4:id}) {\n    $0\n}",
+        "description": "DELETE endpoint"
+    },
+    "Spring RequestParam": {
+        "prefix": "spring-param",
+        "body": "@RequestParam(${1:required = false}) ${2:String} ${3:name}",
+        "description": "@RequestParam argument"
+    },
+    "Spring service": {
+        "prefix": "spring-service",
+        "body": "@Service\npublic class ${1:${TM_FILENAME_BASE}} {\n\n    private final ${2:Repository} ${3:repository};\n\n    public $1(${2:Repository} ${3:repository}) {\n        this.${3:repository} = ${3:repository};\n    }\n\n    $0\n}",
+        "description": "Service with constructor injection"
+    },
+    "Spring component": {
+        "prefix": "spring-component",
+        "body": "@Component\npublic class ${1:${TM_FILENAME_BASE}} {\n    $0\n}",
+        "description": "Spring component"
+    },
+    "Spring configuration": {
+        "prefix": "spring-config",
+        "body": "@Configuration\npublic class ${1:${TM_FILENAME_BASE}} {\n\n    @Bean\n    public ${2:Type} ${3:bean}() {\n        return ${4:new Type()};\n    }\n}",
+        "description": "Configuration class with a @Bean"
+    },
+    "Spring Bean": {
+        "prefix": "spring-bean",
+        "body": "@Bean\npublic ${1:Type} ${2:bean}() {\n    $0\n}",
+        "description": "@Bean method"
+    },
+    "Spring Value": {
+        "prefix": "spring-value",
+        "body": "@Value(\"\\${${1:property.name}${2::default}}\")\nprivate ${3:String} ${4:field};",
+        "description": "@Value injected property"
+    },
+    "Spring ConfigurationProperties": {
+        "prefix": "spring-props",
+        "body": "@ConfigurationProperties(prefix = \"${1:app}\")\npublic record ${2:AppProperties}(${3:String} ${4:name}) {\n}",
+        "description": "Typed configuration properties record"
+    },
+    "Spring Transactional": {
+        "prefix": "spring-tx",
+        "body": "@Transactional${1:(readOnly = true)}",
+        "description": "@Transactional annotation"
+    },
+    "Spring Scheduled": {
+        "prefix": "spring-scheduled",
+        "body": "@Scheduled(${1:cron = \"0 0 * * * *\"})\npublic void ${2:runJob}() {\n    $0\n}",
+        "description": "Scheduled task"
+    },
+    "Spring ControllerAdvice": {
+        "prefix": "spring-advice",
+        "body": "@RestControllerAdvice\npublic class ${1:GlobalExceptionHandler} {\n\n    @ExceptionHandler(${2:NotFoundException}.class)\n    @ResponseStatus(HttpStatus.${3:NOT_FOUND})\n    public ${4:ErrorResponse} handle${2:NotFoundException}(${2:NotFoundException} ex) {\n        $0\n    }\n}",
+        "description": "Global exception handler"
+    },
+    "Spring ExceptionHandler": {
+        "prefix": "spring-exh",
+        "body": "@ExceptionHandler(${1:Exception}.class)\n@ResponseStatus(HttpStatus.${2:BAD_REQUEST})\npublic ${3:ErrorResponse} handle(${1:Exception} ex) {\n    $0\n}",
+        "description": "@ExceptionHandler method"
+    },
+    "Spring ResponseStatusException": {
+        "prefix": "spring-rse",
+        "body": "throw new ResponseStatusException(HttpStatus.${1:NOT_FOUND}, ${2:\"message\"});",
+        "description": "Throw ResponseStatusException"
+    },
+    "Spring Data JPA repository": {
+        "prefix": "spring-repo",
+        "body": "@Repository\npublic interface ${1:Entity}Repository extends JpaRepository<${1:Entity}, ${2:Long}> {\n    $0\n}",
+        "description": "Spring Data JPA repository"
+    },
+    "Spring Data query": {
+        "prefix": "spring-query",
+        "body": "@Query(\"${1:SELECT e FROM Entity e WHERE e.field = :param}\")\n${2:List<Entity>} ${3:findByCustom}(@Param(\"${4:param}\") ${5:String} ${4:param});",
+        "description": "@Query repository method"
+    },
+    "Spring Data derived finder": {
+        "prefix": "spring-find",
+        "body": "${1:Optional<Entity>} findBy${2:Field}(${3:String} ${4:field});",
+        "description": "Derived finder method"
+    },
+    "JPA entity": {
+        "prefix": "jpa-entity",
+        "body": "@Entity\n@Table(name = \"${1:table_name}\")\npublic class ${2:${TM_FILENAME_BASE}} {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    ${3:// fields}\n\n    protected $2() {\n    }\n\n    $0\n}",
+        "description": "JPA entity with id and protected constructor"
+    },
+    "JPA column": {
+        "prefix": "jpa-column",
+        "body": "@Column(name = \"${1:column_name}\"${2:, nullable = false})\nprivate ${3:String} ${4:field};",
+        "description": "JPA column field"
+    },
+    "JPA ManyToOne": {
+        "prefix": "jpa-m2o",
+        "body": "@ManyToOne(fetch = FetchType.LAZY)\n@JoinColumn(name = \"${1:fk_id}\")\nprivate ${2:Type} ${3:field};",
+        "description": "JPA many-to-one relation"
+    },
+    "JPA OneToMany": {
+        "prefix": "jpa-o2m",
+        "body": "@OneToMany(mappedBy = \"${1:owner}\", cascade = CascadeType.ALL, orphanRemoval = true)\nprivate List<${2:Type}> ${3:items} = new ArrayList<>();",
+        "description": "JPA one-to-many relation"
+    },
+    "JPA ManyToMany": {
+        "prefix": "jpa-m2m",
+        "body": "@ManyToMany\n@JoinTable(\n    name = \"${1:join_table}\",\n    joinColumns = @JoinColumn(name = \"${2:owner_id}\"),\n    inverseJoinColumns = @JoinColumn(name = \"${3:target_id}\")\n)\nprivate Set<${4:Type}> ${5:items} = new HashSet<>();",
+        "description": "JPA many-to-many relation"
+    },
+    "Request DTO record": {
+        "prefix": "spring-dto",
+        "body": "public record ${1:CreateRequest}(\n    @NotBlank ${2:String} ${3:name}\n) {\n}",
+        "description": "Validated request DTO record"
+    },
+    "Bean validation NotNull": {
+        "prefix": "val-notnull",
+        "body": "@NotNull(message = \"${1:field is required}\")",
+        "description": "@NotNull with message"
+    },
+    "Spring Boot test": {
+        "prefix": "spring-boottest",
+        "body": "@SpringBootTest\nclass ${1:${TM_FILENAME_BASE}} {\n\n    @Autowired\n    private ${2:Service} ${3:service};\n\n    @Test\n    void ${4:contextLoads}() {\n        $0\n    }\n}",
+        "description": "@SpringBootTest class"
+    },
+    "Spring WebMvcTest": {
+        "prefix": "spring-mvctest",
+        "body": "@WebMvcTest(${1:Resource}Controller.class)\nclass ${2:${TM_FILENAME_BASE}} {\n\n    @Autowired\n    private MockMvc mockMvc;\n\n    @MockBean\n    private ${3:Service} ${4:service};\n\n    @Test\n    void ${5:should_returnOk}() throws Exception {\n        mockMvc.perform(get(\"${6:/api/resource}\"))\n            .andExpect(status().isOk());\n    }\n}",
+        "description": "@WebMvcTest controller test"
+    },
+    "Spring MockMvc perform": {
+        "prefix": "spring-mockmvc",
+        "body": "mockMvc.perform(${1:get}(\"${2:/api/resource}\")\n        .contentType(MediaType.APPLICATION_JSON)\n        .content(${3:json}))\n    .andExpect(status().${4:isOk}())\n    .andExpect(jsonPath(\"\\$.${5:field}\").value(${6:\"value\"}));",
+        "description": "MockMvc request with assertions"
+    },
+    "Spring DataJpaTest": {
+        "prefix": "spring-jpatest",
+        "body": "@DataJpaTest\nclass ${1:${TM_FILENAME_BASE}} {\n\n    @Autowired\n    private ${2:Entity}Repository ${3:repository};\n\n    @Test\n    void ${4:should_save}() {\n        $0\n    }\n}",
+        "description": "@DataJpaTest repository test"
+    }
+}
